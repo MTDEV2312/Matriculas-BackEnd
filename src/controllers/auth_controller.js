@@ -1,5 +1,5 @@
 import User from '../models/user_model.js'
-//import {generateJWT} from '../middlewares/jwt.js'
+import {generateJWT} from '../middlewares/jwt.js'
 
 
 const Login = async(req,res) => {
@@ -21,7 +21,7 @@ const Login = async(req,res) => {
             return res.status(400).json({msg: "Usuario o contraseña incorrectos"})
         }
 
-        //const token = generateJWT(UserBDD.id)
+        const token = generateJWT(UserBDD.id)
     
         const response={
             _id:UserBDD.id,
@@ -30,7 +30,7 @@ const Login = async(req,res) => {
             apellido:UserBDD.apellido
         }
     
-        res.status(200).json({msg:"Login exitoso",response})
+        res.status(200).json({msg:"Login exitoso",response,token})
     } catch (error) {
         console.log(error)
         res.status(500).json({msg:"Lo sentimos, algo salio mal"})

@@ -1,12 +1,12 @@
 import {Router} from 'express'
 import {RegisterEnrollment,GetEnrollments,GetEnrollmentsById,UpdateEnrollment,DeleteEnrollment} from '../controllers/enrollment_controller.js'
-
+import {verifyJwt} from '../middlewares/jwt.js'
 const router = Router()
 
-router.post('/enrollment/register',RegisterEnrollment)
-router.get('/enrollment',GetEnrollments)
-router.get('/enrollment/:codigo',GetEnrollmentsById)
-router.patch('/enrollment/update/:id',UpdateEnrollment)
-router.delete('/enrollment/delete/:id',DeleteEnrollment)
+router.post('/enrollment/register',verifyJwt,RegisterEnrollment)
+router.get('/enrollment',verifyJwt,GetEnrollments)
+router.get('/enrollment/:codigo',verifyJwt,GetEnrollmentsById)
+router.patch('/enrollment/update/:id',verifyJwt,UpdateEnrollment)
+router.delete('/enrollment/delete/:id',verifyJwt,DeleteEnrollment)
 
 export default router
