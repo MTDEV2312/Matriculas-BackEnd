@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import auth from './routers/auth_routes.js'
+import subject from './routers/subjects_routes.js'
 
 
 
@@ -31,7 +32,7 @@ app.get('/',(req,res)=>{
 
 app.use('/api/',auth)
 
-// app.use('/api/',car)
+app.use('/api/',subject)
 
 // app.use('/api/',client)
 
