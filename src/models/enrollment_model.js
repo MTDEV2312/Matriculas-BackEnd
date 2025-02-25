@@ -18,12 +18,12 @@ const enrollmentSchema = new Schema({
         required:true,
         min:0
     },
-    materia:{
+    materia:[{
         type:String,
         trim:true,
         required:true,
         ref:'Subjects'
-    },
+    }],
     estudiante:{
         type:String,
         trim:true,

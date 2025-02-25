@@ -4,6 +4,7 @@ import cors from 'cors';
 import auth from './routers/auth_routes.js'
 import subject from './routers/subjects_routes.js'
 import student from './routers/student_routes.js'
+import enrollment from './routers/enrollment_routes.js'
 
 
 
@@ -37,7 +38,7 @@ app.use('/api/',subject)
 
 app.use('/api/',student)
 
-// app.use('/api/',booking)
+app.use('/api/',enrollment)
 
 
 //Rutas no encontradas
