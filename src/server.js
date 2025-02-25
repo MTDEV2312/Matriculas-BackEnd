@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import auth from './routers/auth_routes.js'
 import subject from './routers/subjects_routes.js'
+import student from './routers/student_routes.js'
 
 
 
@@ -34,7 +35,7 @@ app.use('/api/',auth)
 
 app.use('/api/',subject)
 
-// app.use('/api/',client)
+app.use('/api/',student)
 
 // app.use('/api/',booking)
 
